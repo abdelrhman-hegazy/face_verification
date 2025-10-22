@@ -22,7 +22,6 @@ This project allows storing face embeddings in a database and comparing them for
 - **Database:** PostgreSQL
 - **Face Models:** ONNX
 - **Image Processing:** Sharp
-- **Authentication (optional):** JWT
 - **File Storage:** Git LFS for large ONNX models
 
 ---
