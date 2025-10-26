@@ -28,6 +28,15 @@ This project allows storing face embeddings in a database and comparing them for
 
 ## Setup Instructions
 
+## Docker
+Build and run with Docker:
+
+```bash
+docker pull bnhegazy/face-verification .
+docker run -p 3000:3000 --env-file .env bnhegazy/face-verification
+---
+```
+
 ### 1. Clone the repository
 ```bash
 
@@ -39,6 +48,8 @@ git lfs pull
 npm start
 
 ```
+
+
 ### .env
 DATABASE=face_verification_db
 USER=hegazy
