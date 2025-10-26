@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  face-verification:
+    build: .
+    container_name: face-verification-service
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    restart: unless-stopped

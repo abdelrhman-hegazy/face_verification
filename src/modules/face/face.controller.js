@@ -26,7 +26,6 @@ export async function encode(req, res) {
   }
 }
 export async function compare(req, res) {
-  console.log("inter in compare");
   try {
     if (!req.file)
       return res
@@ -37,23 +36,19 @@ export async function compare(req, res) {
         .status(400)
         .json({ success: false, error: "No username provided" });
 
-    console.log("getUserEmbedding////////////");
 
-    // 🔹 Use await to get the actual embedding
     const storedEmbedding = await getUserEmbedding(req.body.username);
     console.log(req.body.username);
     
     if (!storedEmbedding) {
-      console.log("User not foundCompare");
+      console.log("User not found");
       return res.status(404).json({ success: false, error: "User not found" });
     }
 
-    console.log("storedEmbedding:>>> ", storedEmbedding);
 
     const faceBuffer = await detectFaceAndCrop(req.file.buffer);
     const newEmbedding = await getEmbedding(faceBuffer);
 
-    console.log("newEmbedding:>>>>>> ", newEmbedding);
 
     const { isMatch, similarity } = compareEmbeddings(
       newEmbedding,
